@@ -116,7 +116,6 @@ void PrivateGenerator::PrintAllComments(StringVector comments,
   out->Print("\"\"\"\n");
 }
 
-
 bool PrivateGenerator::PrintStub(
     const std::string& package_qualified_service_name,
     const grpc_generator::Service* service, grpc_generator::Printer* out) {
@@ -187,8 +186,8 @@ bool PrivateGenerator::PrintStub(
   return true;
 }
 
-bool PrivateGenerator::PrintBony(
-    const grpc_generator::File* file, grpc_generator::Printer* out) {
+bool PrivateGenerator::PrintBony(const grpc_generator::File* file,
+                                 grpc_generator::Printer* out) {
   out->Print("\n\n");
   out->Print("class Bony(object):\n");
   {
@@ -252,7 +251,6 @@ bool PrivateGenerator::PrintPreamble(grpc_generator::Printer* out) {
                                  module_name.substr(last_dot_pos + 1);
       }
       out->Print(var, "$ImportStatement$ as $ModuleAlias$\n");
-
     }
     out->Print("\nfrom bony_helpers import get_channel_from_api_key \n");
   }
@@ -274,7 +272,6 @@ bool PrivateGenerator::PrintGAServices(grpc_generator::Printer* out) {
   }
   return true;
 }
-
 
 pair<bool, std::string> PrivateGenerator::GetGrpcServices() {
   std::string output;
